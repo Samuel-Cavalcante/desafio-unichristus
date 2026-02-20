@@ -18,7 +18,7 @@ interface Agendamento {
   id: string;
   salaId?: string;
   sala_id?: string;
-  sala?: { id: string }; // Caso o Java esteja enviando o objeto inteiro da sala
+  sala?: { id: string }; 
   data: string; 
   turno: number;
   horario: number;
@@ -121,8 +121,6 @@ export default function AgendaPage() {
         const end = new Date(start);
         end.setHours(start.getHours() + 1); 
 
-        // AQUI ESTÁ A CORREÇÃO PRINCIPAL: 
-        // Pega o ID de qualquer forma que o Java mandar e força para texto minúsculo.
         const idDaSalaCru = ag.sala_id || ag.salaId || ag.sala?.id || '';
         const idDaSalaFormatado = String(idDaSalaCru).toLowerCase();
 
@@ -131,7 +129,7 @@ export default function AgendaPage() {
           title: ag.descricao,
           start: start,
           end: end,
-          resourceId: idDaSalaFormatado, // Salva formatado
+          resourceId: idDaSalaFormatado, 
           resource: ag
         };
       });
@@ -156,7 +154,6 @@ export default function AgendaPage() {
     }, {} as Record<string, Sala[]>);
   }, [salas]);
 
-  // CORREÇÃO DO FILTRO: Compara sempre os dois em letras minúsculas
   const eventosFiltrados = useMemo(() => {
     if (!salaSelecionada) return eventos;
     
