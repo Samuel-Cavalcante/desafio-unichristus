@@ -1,11 +1,11 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
+inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -23,4 +23,160 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* agenda.module.css */
+
+.container {
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa; /* Fundo levemente cinza para a página */
+  min-height: 100vh;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  color: #111827; /* Preto quase puro para o título */
+  margin: 0;
+}
+
+.calendarWrapper {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* --- MODAL --- */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro mais forte */
+  backdrop-filter: blur(2px); /* Desfoque no fundo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 450px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  color: #1f2937; /* AQUI: Força a cor do texto para cinza muito escuro (quase preto) */
+}
+
+.modalTitle {
+  margin-top: 0;
+  color: #000000; /* Título do modal em preto total */
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* --- FORMULÁRIO --- */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #374151; /* Cor escura e legível para Labels */
+  font-size: 0.9rem;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db; /* Borda cinza visível */
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: #000; /* Texto digitado será PRETO */
+  background-color: #fff;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+.col {
+  flex: 1;
+}
+
+.detailRow {
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.detailRow strong {
+  color: #111827; /* Preto forte para o rótulo */
+  margin-right: 5px;
+}
+
+/* --- BOTÕES --- */
+.actions {
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.btnPrimary {
+  background-color: #10b981;
+  color: white;
+}
+.btnPrimary:hover { background-color: #059669; }
+
+.btnEdit {
+  background-color: #3b82f6;
+  color: white;
+}
+.btnEdit:hover { background-color: #2563eb; }
+
+.btnDelete {
+  background-color: #ef4444;
+  color: white;
+}
+.btnDelete:hover { background-color: #dc2626; }
+
+.btnClose {
+  background-color: #f3f4f6;
+  color: #1f2937; /* Texto escuro no botão claro */
+  border: 1px solid #d1d5db; /* Borda para destacar do fundo branco */
+}
+.btnClose:hover { background-color: #e5e7eb; }
