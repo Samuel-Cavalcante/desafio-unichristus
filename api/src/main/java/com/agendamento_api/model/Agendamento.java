@@ -19,7 +19,7 @@ public class Agendamento {
 
 	public Agendamento(UUID id, UUID sala_id, Date data, Turno turno, Horario horario, String descricao) {
 		this.id = id;
-		this.sala_id = id;
+		this.sala_id = sala_id; 
 		this.data = data;
 		this.turno = turno;
 		this.horario = horario;
